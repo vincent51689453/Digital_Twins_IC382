@@ -1,0 +1,2 @@
+robot_gazebo
+-DCATKIN_DEVEL_PREFIX=/home/vincent/vincent_dev/gazebo_ws/devel -DCMAKE_INSTALL_PREFIX=/home/vincent/vincent_dev/gazebo_ws/install -G Unix Makefiles

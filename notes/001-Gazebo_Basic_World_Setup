@@ -1,0 +1,48 @@
+@@@ Gazebo Basic World Creation
+@@@ Vincent Chan
+@@@ 21/8/2020
+
+1) Create a new workspace for gazebo
+$ mkdir -p ~/gazebo_ws/src
+$ cd ~/gazebo_ws/
+$ catkin_make
+
+2) Create gazebo package
+$ catkin_create_pkg robot_gazebo std_msgs rospy roscpp
+
+3) Inside robot_gazebo, create launch and worlds folders
+
+4) Copy /opt/ros/kinetic/share/gazebo_ros/launch/empty_world.launch to robot_gazebo/launch, and rename it as simulation.launch
+
+
+*** Remeber to change (robot_gazebo and game_field.world) below if your package name or world name are different.
+<launch>
+
+  <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+
+    <arg name="world_name" value="$(find robot_gazebo)/worlds/game_field.world"/>
+
+    <!-- more default parameters can be changed here -->
+
+  </include>
+
+</launch>
+
+
+
+5) Put game_field.world inside robot_gazebo/worlds as basic template
+
+6) Make the workspace when ready
+$ catkin_make
+$ source devel/setup.bash
+
+7) Load the gazebo
+$ roslaunch robot_gazebo simulation.launch
+
+8) In the "INSERT" you should be able to see some materials. (or even your own materials)
+
+Reference: https://www.jianshu.com/p/4d8b8327eb9b
+
+

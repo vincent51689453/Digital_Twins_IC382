@@ -1,0 +1,36 @@
+@@@ Gazebo Basic World Creation
+@@@ Vincent Chan
+@@@ 21/8/2020
+
+1) Crtl + H to visualize hidden folers at /home/vincent/
+
+2) Assume your materials called vc_game_field
+$mkdir ~/.gazebo/models/vc_game_field
+$mkdir -p ~/.gazebo/models/vc_game_field/materials/textures 
+$mkdir -p ~/.gazebo/models/vc_game_field/materials/scripts
+
+3) Create a vc_game_field.material
+Be careful about line 1 and line 11, the names should match with other files.
+
+4) Put vc_game_field.material into ~/.gazebo/models/vc_game_field/materials/scripts
+
+5) Put the image(map) you want into ~/.gazebo/models/vc_game_field/materials/textures
+
+6) Create model.sdf in ~/.gazebo/models/vc_game_field
+Be careful about line 3,32,33,34, the names should match with other files. Especially line 34, it should be match with vc_game_field.material line 1.
+
+7) Create model.config in ~/.gazebo/models/vc_game_field
+Be careful about line 3&6, the name will be displayed in gazebo gui.
+
+8) Launch gazebo and you should able to see your own materials
+$ roslaunch robot_gazebo simulation.launch
+
+9) If you want to adjust the size of the map, you can go to model.sdf and look for <size> a  b</size>
+
+a: red axis
+b: green axis
+
+
+Reference: https://blog.csdn.net/qq_37668436/article/details/104270835
+
+

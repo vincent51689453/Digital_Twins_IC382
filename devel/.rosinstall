@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/vincent/vincent_dev/gazebo_ws/devel/setup.sh
