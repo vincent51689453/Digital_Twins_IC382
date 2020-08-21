@@ -86,10 +86,10 @@
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
     <state world_name='default'>
-      <sim_time>655 316000000</sim_time>
-      <real_time>46 814568259</real_time>
-      <wall_time>1597983266 484822195</wall_time>
-      <iterations>45055</iterations>
+      <sim_time>716 683000000</sim_time>
+      <real_time>68 629532833</real_time>
+      <wall_time>1597988380 599507854</wall_time>
+      <iterations>61367</iterations>
       <model name='ground_plane'>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -101,25 +101,25 @@
         </link>
       </model>
       <model name='robot'>
-        <pose frame=''>0.012503 0.000482 0.099998 -0 1.2e-05 -0.008723</pose>
+        <pose frame=''>0.015417 0.000623 0.1 -0 -2e-06 -1.5707</pose>
         <scale>1 1 1</scale>
         <link name='chassis'>
-          <pose frame=''>0.012503 0.000482 0.099998 -0 1.2e-05 -0.008723</pose>
-          <velocity>0.001296 8.4e-05 -0.00189 -0.000907 0.012965 -4.4e-05</velocity>
-          <acceleration>1.74524 -0.022059 -3.43709 3.12252 0.715196 3.07056</acceleration>
-          <wrench>17.4524 -0.220593 -34.3708 0 -0 0</wrench>
+          <pose frame=''>0.015417 0.000623 0.1 -0 -2e-06 -1.5707</pose>
+          <velocity>-0.000168 -5.2e-05 0.000252 0.000529 -0.001685 5e-06</velocity>
+          <acceleration>0.426383 -0.011634 -7.80378 -3.12055 -1.12258 3.12072</acceleration>
+          <wrench>4.26383 -0.11634 -78.0378 0 -0 0</wrench>
         </link>
         <link name='left_wheel'>
-          <pose frame=''>0.113807 0.149604 0.099997 0 -0.038211 -0.008723</pose>
-          <velocity>0.001367 8.2e-05 -0.003307 -0.000964 0.006319 -7.2e-05</velocity>
-          <acceleration>1.23017 -0.022396 -4.19958 0.081087 -1.2837 -0.21874</acceleration>
-          <wrench>6.15083 -0.111979 -20.9979 0 -0 0</wrench>
+          <pose frame=''>0.165427 -0.099363 0.1 0 -0.045367 -1.5707</pose>
+          <velocity>-0.000165 -4.4e-05 0.000516 0.000518 -0.001685 6e-06</velocity>
+          <acceleration>0.217306 0.007691 -7.99851 -3.13703 1.00629 -3.12434</acceleration>
+          <wrench>1.08653 0.038456 -39.9925 0 -0 0</wrench>
         </link>
         <link name='right_wheel'>
-          <pose frame=''>0.111191 -0.150385 0.099997 0 -0.038049 -0.008723</pose>
-          <velocity>0.001348 8.4e-05 -0.003048 -0.000982 0.006353 7e-06</velocity>
-          <acceleration>1.21128 -0.00641 -4.29922 -0.076472 -1.28233 0.259756</acceleration>
-          <wrench>6.0564 -0.032051 -21.4961 0 -0 0</wrench>
+          <pose frame=''>-0.134573 -0.099391 0.1 0 -0.045347 -1.5707</pose>
+          <velocity>-0.000171 -5.3e-05 0.000325 0.000522 -0.001685 -8e-06</velocity>
+          <acceleration>0.211523 -0.001731 -8.01864 -3.13703 1.00362 3.12863</acceleration>
+          <wrench>1.05762 -0.008655 -40.0932 0 -0 0</wrench>
         </link>
       </model>
       <model name='stop_light'>
@@ -133,10 +133,10 @@
         </link>
       </model>
       <model name='stop_light_0'>
-        <pose frame=''>-0.216525 4.516 0.8 0 -0 0</pose>
+        <pose frame=''>-0.216 4.516 0.8 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>-0.216525 4.516 0.8 0 -0 0</pose>
+          <pose frame=''>-0.216 4.516 0.8 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -234,7 +234,7 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose frame=''>-6.0204 -4.17486 2.25112 -0 0.105796 0.643412</pose>
+        <pose frame=''>-1.84658 -6.06516 4.44701 0 0.327594 1.3891</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
@@ -1154,7 +1154,7 @@
     </model>
     <model name='stop_light_0'>
       <static>1</static>
-      <pose frame=''>-0.216525 4.516 1 0 -0 0</pose>
+      <pose frame=''>-0.201903 4.36456 1 0 -0 0</pose>
       <link name='link'>
         <collision name='collision'>
           <geometry>
@@ -1234,6 +1234,7 @@
             </script>
             <ambient>0 1 0 1</ambient>
             <specular>0 1 0 1</specular>
+            <emissive>0 1 0 1</emissive>
           </material>
         </visual>
         <self_collide>0</self_collide>

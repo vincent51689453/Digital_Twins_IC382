@@ -43,7 +43,7 @@
           <ambient>1 0 0 1</ambient>
           <specular>1 0 0 1</specular>
           <!-- Turn a light on by uncommenting emissive -->
-          <!--emissive>1 0 0 1</emissive-->
+          <emissive>1 0 0 1</emissive>
         </material>
       </visual>
 
