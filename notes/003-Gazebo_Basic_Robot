@@ -1,0 +1,12 @@
+@@@ Gazebo Basic Robot Implementation
+@@@ Vincent Chan
+@@@ 21/8/2020
+
+1) Create two packages for robot
+$ catkin_create_pkg robot_control std_msgs rospy roscpp
+$ catkin_create_pkg robot_description std_msgs rospy roscpp
+
+
+Reference: http://moorerobots.com/blog/post/1
+
+
