@@ -1,8 +1,0 @@
-prefix=/home/vincent/vincent_dev/gazebo_ws/devel
-
-Name: robot_gazebo
-Description: Description of robot_gazebo
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
