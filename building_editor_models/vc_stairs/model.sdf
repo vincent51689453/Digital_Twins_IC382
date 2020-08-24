@@ -1,0 +1,215 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+  <model name='vc_stairs'>
+    <pose frame=''>-0.002279 1.81235 0 0 -0 0</pose>
+    <link name='Stairs_1'>
+      <visual name='Stairs_1_Visual_0'>
+        <pose frame=''>0.000167 0.171477 0.016667 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.45 0.070667 0.033333</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/CeilingTiled</name>
+          </script>
+          <ambient>0.996078 0.47451 0.0196078 1</ambient>
+        </material>
+        <meta>
+          <layer>0</layer>
+        </meta>
+      </visual>
+      <collision name='Stairs_1_Collision_0'>
+        <geometry>
+          <box>
+            <size>0.45 0.070667 0.033333</size>
+          </box>
+        </geometry>
+        <surface>
+            <friction>
+              <ode>
+                <mu>300</mu>
+                <mu2>300</mu2>
+              </ode>
+            </friction>
+        </surface>
+        <pose frame=''>0.000167 0.171477 0.016667 0 -0 0</pose>
+      </collision>
+      <visual name='Stairs_1_Visual_1'>
+        <pose frame=''>0.000167 0.10081 0.05 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.45 0.070667 0.033333</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/CeilingTiled</name>
+          </script>
+          <ambient>0.996078 0.47451 0.0196078 1</ambient>
+        </material>
+        <meta>
+          <layer>0</layer>
+        </meta>
+      </visual>
+      <collision name='Stairs_1_Collision_1'>
+        <geometry>
+          <box>
+            <size>0.45 0.070667 0.033333</size>
+          </box>
+        </geometry>
+        <surface>
+            <friction>
+              <ode>
+                <mu>300</mu>
+                <mu2>300</mu2>
+              </ode>
+            </friction>
+        </surface>
+        <pose frame=''>0.000167 0.10081 0.05 0 -0 0</pose>
+      </collision>
+      <visual name='Stairs_1_Visual_2'>
+        <pose frame=''>0.000167 0.030144 0.083333 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.45 0.070667 0.033333</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/CeilingTiled</name>
+          </script>
+          <ambient>0.996078 0.47451 0.0196078 1</ambient>
+        </material>
+        <meta>
+          <layer>0</layer>
+        </meta>
+      </visual>
+      <collision name='Stairs_1_Collision_2'>
+        <geometry>
+          <box>
+            <size>0.45 0.070667 0.033333</size>
+          </box>
+        </geometry>
+        <surface>
+            <friction>
+              <ode>
+                <mu>300</mu>
+                <mu2>300</mu2>
+              </ode>
+            </friction>
+        </surface>
+        <pose frame=''>0.000167 0.030144 0.083333 0 -0 0</pose>
+      </collision>
+    </link>
+    <link name='Stairs_3'>
+      <visual name='Stairs_3_Visual_0'>
+        <pose frame=''>-0.000167 -0.173477 0.016667 0 -0 -3.14159</pose>
+        <geometry>
+          <box>
+            <size>0.45 0.066667 0.033333</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/CeilingTiled</name>
+          </script>
+          <ambient>0.996078 0.47451 0.0196078 1</ambient>
+        </material>
+        <meta>
+          <layer>0</layer>
+        </meta>
+      </visual>
+      <collision name='Stairs_3_Collision_0'>
+        <geometry>
+          <box>
+            <size>0.45 0.066667 0.033333</size>
+          </box>
+        </geometry>
+        <surface>
+            <friction>
+              <ode>
+                <mu>300</mu>
+                <mu2>300</mu2>
+              </ode>
+            </friction>
+        </surface>
+        <pose frame=''>-0.000167 -0.173477 0.016667 0 -0 -3.14159</pose>
+      </collision>
+      <visual name='Stairs_3_Visual_1'>
+        <pose frame=''>-0.000167 -0.10681 0.05 0 -0 -3.14159</pose>
+        <geometry>
+          <box>
+            <size>0.45 0.066667 0.033333</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/CeilingTiled</name>
+          </script>
+          <ambient>0.996078 0.47451 0.0196078 1</ambient>
+        </material>
+        <meta>
+          <layer>0</layer>
+        </meta>
+      </visual>
+      <collision name='Stairs_3_Collision_1'>
+        <geometry>
+          <box>
+            <size>0.45 0.066667 0.033333</size>
+          </box>
+        </geometry>
+        <surface>
+            <friction>
+              <ode>
+                <mu>300</mu>
+                <mu2>300</mu2>
+              </ode>
+            </friction>
+        </surface>
+        <pose frame=''>-0.000167 -0.10681 0.05 0 -0 -3.14159</pose>
+      </collision>
+      <visual name='Stairs_3_Visual_2'>
+        <pose frame=''>-0.000167 -0.040144 0.083333 0 -0 -3.14159</pose>
+        <geometry>
+          <box>
+            <size>0.45 0.066667 0.033333</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/CeilingTiled</name>
+          </script>
+          <ambient>0.996078 0.47451 0.0196078 1</ambient>
+        </material>
+        <meta>
+          <layer>0</layer>
+        </meta>
+      </visual>
+      <collision name='Stairs_3_Collision_2'>
+        <geometry>
+          <box>
+            <size>0.45 0.066667 0.033333</size>
+          </box>
+        </geometry>
+        <surface>
+            <friction>
+              <ode>
+                <mu>300</mu>
+                <mu2>300</mu2>
+              </ode>
+            </friction>
+        </surface>
+        <pose frame=''>-0.000167 -0.040144 0.083333 0 -0 -3.14159</pose>
+      </collision>
+    </link>
+    <static>1</static>
+  </model>
+</sdf>
