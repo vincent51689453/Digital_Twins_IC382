@@ -41,10 +41,11 @@ class Follower:
     y_thresh = 50
     
     #Lane Detection
-    region_of_interest_vertices = [(0,(img_height-20)),(img_width/2,img_height/2),(img_width,(img_height-20))]
+    region_of_interest_vertices = [(0,(img_height-50)),(img_width/2,img_height/2),(img_width,(img_height-50))]
     lane_img = cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
     edges = cv2.Canny(lane_img,50,200)
     cropped_image = region_of_interest(edges,np.array([region_of_interest_vertices],np.int32))
+    #cropped_image = cv2.resize(cropped_image, (640, 420))
     #cv2.imshow("ROI", cropped_image )
     lines = cv2.HoughLinesP(cropped_image,1,np.pi/180,100,minLineLength=10,maxLineGap=250)
     #Reference
