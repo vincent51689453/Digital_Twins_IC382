@@ -25,3 +25,11 @@ This platform provides a simulation environment for IC382 Rescue Robot Simulatio
 (TO-DO)
 
 
+**Graph and Visualization**
+---------------------------
+### A. Tracked robot URDF
+![image](https://github.com/vincent51689453/Gazebo_IC382_Simulation/blob/master/git_image/robot_urdf.png)
+
+### B. ROS graph
+![image](https://github.com/vincent51689453/Gazebo_IC382_Simulation/blob/master/git_image/rqt_graph.png)
+
