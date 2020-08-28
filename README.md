@@ -51,3 +51,9 @@ This platform provides a simulation environment for IC382 Rescue Robot Simulatio
 
 7. visualize_nodes.sh: it is a script to generate ros graph
 
+8. camera_publish.sh: it is a script to publish the image as a jpg from python2 opencv
+
+9. camera_subscriber.sh: it is a script to show published image and perform lane detection (testing)
+
+10. TensorRT-ROS-Bridge.sh: it is a script which does not belong to ROS. It loads published image and perform AI object detection and other image processsing.
+
