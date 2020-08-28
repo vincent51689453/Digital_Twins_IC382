@@ -75,7 +75,6 @@ class Follower:
     cv2.waitKey(3)
 
 rospy.init_node('follower')
-print("haha")
 follower = Follower()
 rospy.spin()
 # END ALL
