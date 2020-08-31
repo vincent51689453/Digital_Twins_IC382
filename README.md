@@ -67,6 +67,8 @@ This platform provides a simulation environment for IC382 Rescue Robot Simulatio
 
 10. TensorRT-ROS-Bridge.sh: it is a script which does not belong to ROS. It loads published image and perform AI object detection and other image processsing.
 
+11. vision_control.sh: it is a script to perform PID control based on vision and deep learning.
+
 ### 5.2 Startup Procedures
 1. ./run_gazebo.sh (load the world) [ROS]
 2. ./camera_publish.sh (publish the image) [ROS]
