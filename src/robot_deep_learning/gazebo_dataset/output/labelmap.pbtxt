@@ -1,0 +1,16 @@
+item {
+  id: 1
+  name: 'green_on'
+}
+
+item {
+  id: 2
+  name: 'green_off'
+}
+
+item {
+  id: 3
+  name: 'stairs'
+}
+
+

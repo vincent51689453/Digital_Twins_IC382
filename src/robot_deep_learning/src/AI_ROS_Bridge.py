@@ -26,7 +26,7 @@ ref_y = int(img_height/2+200)
 # Constants
 DEFAULT_MODEL = 'ssd_inception_v2_coco'
 DEFAULT_LABELMAP = 'third_party/models/research/object_detection/' \
-                   'data/mscoco_label_map.pbtxt'
+                   'data/labelmap.pbtxt'
 WINDOW_NAME = 'CameraTFTRTDemo'
 BBOX_COLOR = (0, 255, 0)  # green
 
@@ -115,9 +115,16 @@ def loop_and_detect(cam, tf_sess, conf_th, vis, od_type):
     distance = 0
     mid_x,mid_y = 0,0
     y_thresh = 50   
+
+    blob_thresh = 1000
+
+
     while True:
         min_x = 500
-        min_distance = 1000 
+        min_distance = 100000
+        distance = 0
+
+        #load published image
         img = cv2.imread('/home/vincent/vincent_dev/gazebo_ws/src/robot_vision/src/buffer.jpg')
         
         if cv2.getWindowProperty(WINDOW_NAME, 0) < 0:
@@ -127,14 +134,26 @@ def loop_and_detect(cam, tf_sess, conf_th, vis, od_type):
 
         #img = cam.read()
         if img is not None:
+            #make a copy for lane detection
+            img_lane = img
+ 
             #Lane Detection
-            #Verticeis of cropped polygon
-            region_of_interest_vertices = [(0,(img_height-50)),(img_width/2,img_height/2),(img_width,(img_height-50))]
-            lane_img = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+            #Verticeis of cropped polygon (aim at right lane)
+            region_of_interest_vertices = [(img_width/2,img_height),(img_width/2,img_height/2+80),(img_width,img_height/2+80),(img_width,img_height)]
+            lane_img = cv2.cvtColor(img_lane,cv2.COLOR_BGR2GRAY)
             edges = cv2.Canny(lane_img,50,200)
             cropped_image = region_of_interest(edges,np.array([region_of_interest_vertices],np.int32))
-            #cv2.imshow('cropped',cropped_image)
+            #Debug ROI
+            #dummy = cv2.resize(cropped_image, (640, 420))   
+            #cv2.imshow('cropped',dummy)
             lines = cv2.HoughLinesP(cropped_image,1,np.pi/180,100,minLineLength=10,maxLineGap=250)
+            #Lane Detection
+
+            #AI-Core
+            box, conf, cls = detect(img, tf_sess, conf_th, od_type=od_type)
+            img,vision_msg = vis.draw_bboxes(img, box, conf, cls)
+
+
             #Reference
             cv2.circle(img,(ref_x,ref_y),4,(0,255,0),-1)
             cv2.putText(img,"REFERENCE",(ref_x,ref_y-10),cv2.FONT_HERSHEY_SIMPLEX,0.5,(0,255,0),2)
@@ -144,28 +163,22 @@ def loop_and_detect(cam, tf_sess, conf_th, vis, od_type):
                     mid_x = int((x1+x2)/2)
                     mid_y = int((y1+y2)/2)
                     distance = int(math.sqrt((mid_x-ref_x)**2+(mid_y-ref_y)**2))
-                    #ignore horizontal line
-                    if(abs(y2-y1) > y_thresh):
-                        print("x1={} y1={} x2={} y2={} | Distance={}".format(x1,y1,x2,y2,distance))
+                    #ignore horizontal line and left lane
+                    if(abs(y2-y1) > y_thresh)and(mid_x >= ref_x ):
+                        #print("x1={} y1={} x2={} y2={} | Distance={}".format(x1,y1,x2,y2,distance))
                         #Find the shortest distance
-                        if((mid_x<=ref_x)and(min_distance>distance)):
+                        if((mid_x>=ref_x)and(min_distance>distance)):
                             min_x = mid_x
                             min_distance=distance
 
                         cv2.line(img,(x1,y1),(x2,y2),(255,255,0),3)
                         cv2.circle(img,(mid_x,mid_y),4,(255,0,0),-1)  
-                print("Min X={} | Min_distance={}".format(min_x,min_distance))
-         
-            #Lane Detection finished
-            box, conf, cls = detect(img, tf_sess, conf_th, od_type=od_type)
-            img = vis.draw_bboxes(img, box, conf, cls)
+                #print("Min X={} | Min_distance={}".format(min_x,min_distance))
+
             if show_fps:
                 img = draw_help_and_fps(img, fps)
-                
-                
-                
-                
-                
+
+            #Display overall result             
             img = cv2.resize(img, (640, 420))   
             cv2.imshow(WINDOW_NAME, img)
             toc = time.time()
@@ -173,6 +186,38 @@ def loop_and_detect(cam, tf_sess, conf_th, vis, od_type):
             # calculate an exponentially decaying average of fps number
             fps = curr_fps if fps == 0.0 else (fps*0.9 + curr_fps*0.1)
             tic = toc
+
+            #publish ros controller message
+            message_header = 'R'
+            #Padding zero for distance
+            msg_distance = "999"
+            msg_length = len(str(min_distance))
+            if(min_distance==0):
+                #measure ref
+                msg_distance = "160"
+            if(msg_length==1):
+                msg_distance = "00" + str(min_distance)
+            if(msg_length==2):
+                msg_distance = "0" + str(min_distance)
+            if(msg_length==3):
+                msg_distance = str(min_distance)
+            #conclude AI detection
+            publish_msg = message_header + msg_distance + vision_msg
+            print("Published msg: ",publish_msg)
+            """
+            R245R_X_7134
+            R: Right Lane Header
+            245: distance
+            R: turn right
+            X: no stairs
+            7134: ON AREA
+            """
+            msg_file = open('/home/vincent/vincent_dev/gazebo_ws/src/robot_control/src/ros_msg_bridge.txt','w')
+            msg_file.write(publish_msg)
+
+            publish_msg = None
+            msg_distance = None
+            vision_msg = None
 
         key = cv2.waitKey(1)
         if key == 27:  # ESC key: quit program

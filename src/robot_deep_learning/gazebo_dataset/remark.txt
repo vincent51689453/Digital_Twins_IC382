@@ -1,0 +1,11 @@
+Assume training : testing = 7:3
+
+total size = 521 -> 365 (training) + 156 (testing)
+
+testing -> 63 for stairs | 93 for traffic lights
+
+
+class_name:
+green_off 
+green_on
+stairs
