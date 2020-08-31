@@ -22,7 +22,17 @@ This platform provides a simulation environment for IC382 Rescue Robot Simulatio
 
 **3. Deep Learning Integration**
 ---------------------------
+### 3.1 Vision based control
 ![image](https://github.com/vincent51689453/Digital_Twins_IC382/blob/master/git_image/gazebo_ai_demo.gif)
+
+### 3.2 Tensorboard Training Evaluation
+![image](https://github.com/vincent51689453/Digital_Twins_IC382/blob/master/git_image/learning_rate_less.JPG)
+
+![image](https://github.com/vincent51689453/Digital_Twins_IC382/blob/master/git_image/loss_smoothed.JPG)
+
+![image](https://github.com/vincent51689453/Digital_Twins_IC382/blob/master/git_image/loss_smoothed_less.JPG)
+
+
 
 
 **4. Graph and Visualization**
