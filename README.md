@@ -75,3 +75,5 @@ This platform provides a simulation environment for IC382 Rescue Robot Simulatio
 3. ./TensorRT-ROS-Bridge.sh (enable AI and vision processing module) [NOT ROS]
 4. ./vision_control.sh [ROS]
 
+**Remeber to put correct models to ~/.gazebo/models, otherwise the world cannnot be loaded. Also, put budiling_editor_models under ~/
+
