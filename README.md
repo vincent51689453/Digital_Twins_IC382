@@ -26,7 +26,9 @@ This platform provides a simulation environment for Hong Kong Polytechnic Univer
 ![image](https://github.com/vincent51689453/Digital_Twins_IC382/blob/master/git_image/gazebo-ai-demo.gif)
 
 ### 3.2 Tensorboard Training Evaluation
+
 The network trained based on ssdmobilienet_v1 with coco dataset.
+
 ![image](https://github.com/vincent51689453/Digital_Twins_IC382/blob/master/git_image/learning_rate_less.JPG)
 
 ![image](https://github.com/vincent51689453/Digital_Twins_IC382/blob/master/git_image/loss_smoothed.JPG)
