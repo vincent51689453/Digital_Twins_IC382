@@ -1,5 +1,5 @@
 # Gazebo_IC382_Simulation
-This platform provides a simulation environment for IC382 Rescue Robot Simulation. The simulation tasks are mainly focus on computer vision and deep learning.
+This platform provides a simulation environment for Hong Kong Polytechnic University Industrial Centre Course (IC382) Rescue Robot Simulation . The simulation tasks are mainly focus on computer vision and deep learning. The robot should have the ability to control itself in order to reach the goal meanwhile, it should be able to classify the turning directions based on the traffic light pattern.
 
 
 **1. Demo and Layout**
