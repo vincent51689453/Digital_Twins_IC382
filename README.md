@@ -15,14 +15,14 @@ This platform provides a simulation environment for Hong Kong Polytechnic Univer
 ### 2.1 Basic virtual camera 
 ![image](https://github.com/vincent51689453/Gazebo_IC382_Simulation/blob/master/git_image/opencv_camera.png)
 
-### 2.2 Lane Detection
+### 2.2 Lane Detection based on Hough Transform
 ![image](https://github.com/vincent51689453/Gazebo_IC382_Simulation/blob/master/git_image/cv2_lane_detetor.png)
 
 
 
-**3. Deep Learning Integration**
+**3. Deep Learning (object detection) Integration**
 ---------------------------
-### 3.1 Vision based control
+### 3.1 Vision based control 
 ![image](https://github.com/vincent51689453/Digital_Twins_IC382/blob/master/git_image/gazebo-ai-demo.gif)
 
 ### 3.2 Tensorboard Training Evaluation
