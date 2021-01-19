@@ -103,7 +103,7 @@ class BBoxVisualization():
 
         for bb, cf, cl in zip(box, conf, cls):
             cl = int(cl)
-            if(cf>=0.7):
+            if(cf>=0.85):
                 y_min, x_min, y_max, x_max = bb[0], bb[1], bb[2], bb[3]
                 x_center = (x_min+x_max)/2
                 y_center = (y_min+y_max)/2

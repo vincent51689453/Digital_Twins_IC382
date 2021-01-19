@@ -1,0 +1,59 @@
+Nvidia Jetson TX2 Setup Guide:
+
+Author: Chan Tai Wing Vincent
+Date: 9/9/2019
+
+The following setup guide is tested under JackPack 4.2.1 (Rev.2) installed by nvidia SDK Manager
+
+
+1) Check software version
+  - Python Version:  $python  => 2.7.15
+  - Python3 Version: $python3 => 3.6.8
+  - Python3 OpenCV Version: $python3 => import cv2 => print(cv2.__version__) => 3.3.1
+  - Python3 Tensorflow Version: $python3 => import tensorflow as tf => print(tf.__version__) => 1.14.0
+  - CUDA Version: $nvcc --version => 10.0
+  - cuDNN Version: $sudo dpkg -l|grep cuDNN => 7.5.0
+
+2) Update and Upgrade Ubuntu System
+  $ sudo apt-get update && sudo apt-get upgrade	
+
+3) Install Matplotlib
+  $ sudo apt-get install python3-matplotlib
+  $ python3 => import matplotlib 
+
+4) Download TensorRT Project file on Desktop
+  $ sudo git clone --recursive https://github.com/jkjung-avt/tf_trt_models
+  $ sudo ./install.sh
+
+5) Change authority of tf_trt_models
+  $ sudo chmod -R 777 tf_trt_models
+
+6) Change the following content in camera_tf_trt.py to prevent kernal error
+  FROM: tf_sess = tf.Session(config=tf_config, graph=trt_graph)
+  TO: tf_sess = tf.Session(config=tf.ConfigProto(allow_soft_placement=True,log_device_placement=True),graph=trt_graph)
+  
+
+7) Verify installation by running an object detection demo
+  $python3 camera_tf_trt.py --image --filename examples/detection/data/huskies.jpg --model ssd_mobilenet_v1_coco --build
+  **Noted that --build is required if the model is first time implemented
+  **If there is an error about no module "object_detection" or "nets", please do the followings.
+    1) In tf_trt_models/third_party/models/researh: python3 setup.py build + sudo python3 setup.py install
+    2) In tf_trt_models/third_party/models/researh/slim, remove "build" directory and "BUILD", then python3 setup.py build + sudo python3 setup.py install
+
+8) There is an issue about extreme long loading time of tensorRT graph by protobuf.
+  In order to solve this problem, it is necessary to recompile the protobuf into C++ standard.
+  $ pip3 show protobuf (check protobuf version)
+  $ ./install_protobuf-3.9.1.sh
+
+9) Execute USB camera real time object detection
+  $ python3 camera_tf_trt.py --usb --vid 1 --model ssd_mobilenet_v1_coco
+  **Noted that vid 0 is reserved for on board camera module of Jetson TX2
+
+10) [OPTIONAL] Install GPU Acitvity Monitor
+  $ sudo git clone https://github.com/jetsonhacks/gpuGraphTX
+  $ python3 gpuGraph.py
+
+11) [OPTIONAL] Install Psensor 
+  $ sudo apt-get install lm-sensors
+  $ sudo sensors-detect
+  $ sudo apt-get install psensor
