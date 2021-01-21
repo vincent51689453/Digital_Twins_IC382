@@ -80,3 +80,7 @@ The network trained based on ssdmobilienet_v1 with coco dataset.
 
 **Remeber to put correct models to ~/.gazebo/models, otherwise the world cannnot be loaded. Also, put budiling_editor_models under ~/
 
+**6. Reference **
+---------------------------
+TensorRT Object Detection Program Framework -> https://github.com/jkjung-avt/tf_trt_models
+
